@@ -1,0 +1,1189 @@
+<html><head><link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+<style>
+body {
+    font-family: 'Coiny';font-size: 22px;
+}
+</style>
+
+
+
+  
+  
+  
+  
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Eat cells smaller than you and don't get eaten by the bigger ones, as an MMO">
+    <meta name="keywords" content="agario, agar, io, cell, cells, virus, bacteria, blob, game, games, web game, html5, fun, flash">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Skillgame.tk</title>
+
+    <link id="favicon" rel="icon" type="image/png" href="">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <link href="gallery.css" rel="stylesheet">
+    <script src="quadtree.js"></script>
+    <script src="main_out.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.rawgit.com/needim/noty/77268c46/lib/noty.min.js"></script>
+  <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/77268c46/lib/noty.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+  
+  
+</head>
+
+<body>
+    <div id="gallery" onclick="if (event.target == this) this.hide()" style="display: none;">
+        <div id="gallery-content">
+            <div id="gallery-header">Skins</div>
+            <div id="gallery-body"></div>
+        </div>
+    </div>
+
+  
+  <div id="deathScreen" style="display: none;">
+    <button id="DeathButton" class="deathScreenButton">Continue</button>
+  </div>
+
+
+       
+    <div id="connecting" style="transition: opacity 0.5s ease 0s; opacity: 0; display: none;">
+        <div id="connecting-content">
+            <h2>Connecting</h2>
+            <p> If you cannot connect to the servers, check if you have some anti virus or firewall blocking the connection.</p>
+        </div>
+    </div>
+  
+  
+
+    <div id="mobileStuff" style="display: none;">
+        <div id="touchpad"></div>
+        <div id="touchCircle" style="display: none;"></div>
+        <img src="/assets/img/split.png" id="splitBtn">
+        <img src="/assets/img/eject.png" id="ejectBtn">
+    </div>
+
+
+
+
+  
+    
+  
+   <div id="overlays" style="transition: opacity 0.5s ease 0s; opacity: 1;">
+        <div class="menu shadow">
+            <div class="form-group">
+                <img id="Logo" src="https://media.discordapp.net/attachments/725970108299739167/901834794890043482/Untitled_2.png">
+
+              <input id="nick" class="form-control" placeholder="Nickname" maxlength="300" style="text-align:left;">
+            
+<style>
+     #Logo:hover {
+    color: #000;
+  }
+  
+
+  
+  .hvrtxtwhite:hover {
+    text-shadow: 0 0 30px #fff;
+  }
+              </style>  
+              
+  </div>
+         
+
+            
+                
+            
+
+
+            <div id="instructions">
+                <hr>
+                <center>
+                    <center><b>Advertisement</b></center>
+    <br>
+      
+              <br>
+                          <br>
+                            
+      <br>
+      <br>
+      <br>  <br><br>
+      
+      <br><br>
+      
+      <br><br>
+      <br>
+    <br>
+    <br>
+    <br>
+      <br><br></center>
+            </div>
+
+
+            <hr>
+            <div id="footer">
+                 
+<br>
+<center>  <button id="play-btn" class="btn btn-play btn-needs-server">Play</button>
+    
+<button id="spectate-btn" onclick="spectate()" class="btn btn-spectate btn-needs-server">Spectate</button></center>
+    
+              
+              
+              <div id="leftBox" class="menu">
+          <center>
+            <img src="https://media.discordapp.net/attachments/725970108299739167/901835373691424808/Untitled_4.png">
+            <select id="gamemode" class="form-control" onchange="setserver(this.value)" required="">
+                    <option value="fringe-brook-femur.glitch.me">Virusfarm</option>
+                    <option value="dontriskitytsuperso233.glitch.me">Supersonic</option>
+                    <option value="dontriskitytserver232.glitch.me">Gigantic</option>
+                    <option value="botsdontriskityt.glitch.me">Bots</option>
+                    <option value="skillserverdontriskiyt.glitch.me">FFA</option>
+                    <option value="teamingbatteroyale.glitch.me">Teaming and Batter royal</option>
+ 
+           
+                </select>
+            </ul>
+          </center>  <hr>
+              <div style="margin-left: 30px;" bis_skin_checked="1">
+                <style>
+element.style {
+    margin-left: 30px;
+                  }</style>
+                
+                  <br>
+                   
+                    <label><input id="showNames" type="checkbox">⠀⠀Names</label>
+                    
+                    <label><input id="showColor" type="checkbox">⠀⠀Color</label>
+                    <label><input id="showMass" type="checkbox">⠀⠀Mass</label>
+                    <label><input id="showChat" type="checkbox">⠀⠀Chat</label>
+                    <label><input id="showMinimap" type="checkbox">⠀⠀Minimap</label>
+                    <label><input id="showPosition" type="checkbox">⠀⠀Position</label>
+                    <label><input id="showBorder" type="checkbox">⠀⠀Border</label>
+                    <label><input id="showGrid" type="checkbox">⠀⠀Grid</label>
+                    <label><input id="moreZoom" type="checkbox">⠀⠀Zoomout</label>
+                  
+                     <label><input id="backgroundSectors" type="checkbox">⠀⠀Background Sectors</label><br>
+                <hr>
+              
+                All copyrights DontRiskitYT
+                 
+                  </div>
+        </div>
+          
+          
+             <div id="rightBox" class="menu">
+          <center>
+            
+           <img src="https://media.discordapp.net/attachments/725970108299739167/901835592512471070/Untitled_5.png">
+         
+                
+            
+          </center>  <hr>
+              <div style="margin-left: 30px;" bis_skin_checked="1">
+                <style>
+element.style {
+    margin-left: 30px;
+                  }</style>
+                
+                  <br>
+                   
+              <code>Made a new client | added freeze | added notifaction when a server restarts of when you disconnect or connect to a server made with Noty.js | death panel | new font for canvas | added rainbow border</code>
+                <hr>
+            Move your <b>mouse</b> to control your cell<br>
+            Press <b>SPACE</b> to split your cells<br>
+            Press <b>W</b> to eject mass<br>
+            Press <b>Z</b> to 64x split<br>
+            Press <b>D</b> to double split  only in solotrick paridise currently <br>
+            Hold <b>F</b> to freeze your cell<br>
+                <hr>
+                  
+                  <button class="button">
+  <span class="button__text">
+      <style>/* only animate if the device supports hover */
+@media (hover: hover) {
+  #creditcard {
+    /*  set start position */
+    transform: translateY(110px);
+    transition: transform 0.1s ease-in-out;
+    /*  set transition for mouse enter & exit */
+  }
+
+  #money {
+    /*  set start position */
+    transform: translateY(180px);
+    transition: transform 0.1s ease-in-out;
+    /*  set transition for mouse enter & exit */
+  }
+
+  button:hover #creditcard {
+    transform: translateY(0px);
+    transition: transform 0.2s ease-in-out;
+    /*  overide transition for mouse enter */
+  }
+
+  button:hover #money {
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out;
+    /*  overide transition for mouse enter */
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.button:hover .button__text span {
+  transform: translateY(-0.25rem);
+  transition: transform .2s ease-in-out;
+}
+
+/* styling */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  border: none;
+  outline: none;
+  background-color: purple;
+  padding: 1rem 90px 1rem 2rem;
+  position: relative;
+  border-radius: 8px;
+  letter-spacing: 0.7px;
+  background-color: #5086bd;
+  color: #fff;
+  font-size: 21px;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button__svg {
+  position: absolute;
+  overflow: visible;
+  bottom: 6px;
+  right: 0.2rem;
+  height: 140%;
+}
+      </style>
+    <span>Shop</span></span><span> </span>
+  
+  <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+    <defs>
+      <clipPath id="myClip">
+        <rect x="0" y="0" width="100%" height="50%"></rect>
+      </clipPath>
+    </defs>
+    <g clip-path="url(#myClip)">
+      <g id="money">
+        <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"></path>
+        <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"></path>
+      </g>
+      <g id="creditcard">
+        <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"></path>
+        <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67"></path>
+        <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44"></path>
+      </g>
+    </g>
+    <g id="wallet">
+      <path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"></path>
+      <path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"></path>
+      <path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"></path>
+      <path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91"></path>
+      <path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44"></path>
+    </g>
+
+  </svg>
+</button>
+     </div>
+        </div>
+     
+              
+              <style>#leftBox {
+    width: 350px;
+    height: 600px;
+    margin: 10px auto;
+    border-radius: 1px;                 
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin-left: -420px;
+              
+}
+          
+#rightBox {
+    width: 350px;
+    height: 600px;
+    margin: 10px auto;
+    border-radius: 1px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 420px;
+}
+                
+                
+          </style>
+            </div>
+
+        </div>
+      
+    </div>
+  
+  <div id="deathScreen" style="display: none;">
+    <button id="DeathButton" class="deathScreenButton">Continue</button>
+  </div>
+
+
+       
+    <div id="connecting" style="transition: opacity 0.5s ease 0s; opacity: 0; display: none;">
+        <div id="connecting-content">
+            <h2>Connecting</h2>
+            <p> If you cannot connect to the servers, check if you have some anti virus or firewall blocking the connection.</p>
+        </div>
+    </div>
+  
+  
+
+    <div id="mobileStuff" style="display: none;">
+        <div id="touchpad"></div>
+        <div id="touchCircle" style="display: none;"></div>
+        <img src="/assets/img/split.png" id="splitBtn">
+        <img src="/assets/img/eject.png" id="ejectBtn">
+    </div>
+
+    <canvas id="canvas" width="1082" height="754"></canvas>
+    <input type="text" id="chat_textbox" placeholder="Press enter to chat" maxlength="200000000000000129374921387490213874890217409174091283740912874019238740000000000000000000">
+    <div style="font-family:'Ubuntu'">&nbsp;</div>
+
+
+
+  
+    
+  
+  
+
+			
+<!--<script>
+  Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)</script>-->
+  
+  <style>body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}</style>
+  
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>function _0x5043(_0x1880a2,_0x3711fa){const _0x2e2fff=_0x2e2f();return _0x5043=function(_0x504340,_0x2d189d){_0x504340=_0x504340-0x10f;let _0x527593=_0x2e2fff[_0x504340];return _0x527593;},_0x5043(_0x1880a2,_0x3711fa);}const _0x48bb54=_0x5043;(function(_0x15a4f7,_0x75ba1c){const _0x3e3d3b=_0x5043,_0x1aa05b=_0x15a4f7();while(!![]){try{const _0x5efd53=parseInt(_0x3e3d3b(0x113))/0x1*(-parseInt(_0x3e3d3b(0x120))/0x2)+-parseInt(_0x3e3d3b(0x11a))/0x3*(-parseInt(_0x3e3d3b(0x11d))/0x4)+-parseInt(_0x3e3d3b(0x119))/0x5+parseInt(_0x3e3d3b(0x110))/0x6*(parseInt(_0x3e3d3b(0x11b))/0x7)+parseInt(_0x3e3d3b(0x111))/0x8*(parseInt(_0x3e3d3b(0x10f))/0x9)+parseInt(_0x3e3d3b(0x125))/0xa*(parseInt(_0x3e3d3b(0x11e))/0xb)+-parseInt(_0x3e3d3b(0x11f))/0xc;if(_0x5efd53===_0x75ba1c)break;else _0x1aa05b['push'](_0x1aa05b['shift']());}catch(_0x3c2fd6){_0x1aa05b['push'](_0x1aa05b['shift']());}}}(_0x2e2f,0xd0a45));var rainbowMode=!![],borderColor=_0x48bb54(0x114);(function(){const _0x1b0e42=_0x48bb54;var _0x5b6106=0x5;function _0x349f3e(_0x143462,_0xda44b4,_0xef0c22){_0x143462/=0x168,_0xda44b4/=0x64,_0xef0c22/=0x64;let _0x1c80c6,_0x355055,_0x466596;if(_0xda44b4===0x0)_0x1c80c6=_0x355055=_0x466596=_0xef0c22;else{const _0xa5cad6=(_0x5cc5ba,_0x5ea669,_0x500c8f)=>{if(_0x500c8f<0x0)_0x500c8f+=0x1;if(_0x500c8f>0x1)_0x500c8f-=0x1;if(_0x500c8f<0x1/0x6)return _0x5cc5ba+(_0x5ea669-_0x5cc5ba)*0x6*_0x500c8f;if(_0x500c8f<0x1/0x2)return _0x5ea669;if(_0x500c8f<0x2/0x3)return _0x5cc5ba+(_0x5ea669-_0x5cc5ba)*(0x2/0x3-_0x500c8f)*0x6;return _0x5cc5ba;},_0x36c32f=_0xef0c22<0.5?_0xef0c22*(0x1+_0xda44b4):_0xef0c22+_0xda44b4-_0xef0c22*_0xda44b4,_0x5591e8=0x2*_0xef0c22-_0x36c32f;_0x1c80c6=_0xa5cad6(_0x5591e8,_0x36c32f,_0x143462+0x1/0x3),_0x355055=_0xa5cad6(_0x5591e8,_0x36c32f,_0x143462),_0x466596=_0xa5cad6(_0x5591e8,_0x36c32f,_0x143462-0x1/0x3);}const _0x35ba91=_0x5a234c=>{const _0x23a384=_0x5043,_0x4efd6d=Math['round'](_0x5a234c*0xff)['toString'](0x10);return _0x4efd6d[_0x23a384(0x112)]===0x1?'0'+_0x4efd6d:_0x4efd6d;};return'#'+_0x35ba91(_0x1c80c6)+_0x35ba91(_0x355055)+_0x35ba91(_0x466596);}var _0x5cf9f4=CanvasRenderingContext2D[_0x1b0e42(0x116)][_0x1b0e42(0x118)];CanvasRenderingContext2D[_0x1b0e42(0x116)]['stroke']=function(){const _0x47f5ae=_0x1b0e42;if(this['lineWidth']<0xa||this['strokeStyle']==_0x47f5ae(0x124)||this[_0x47f5ae(0x11c)]==_0x47f5ae(0x117)||this['strokeStyle']=='#7f7f7f'||this[_0x47f5ae(0x11c)][_0x47f5ae(0x123)](0x5,0x7)!=this[_0x47f5ae(0x11c)]['slice'](0x3,0x5))return _0x5cf9f4[_0x47f5ae(0x122)](this,arguments);return this['strokeStyle']=rainbowMode?_0x349f3e(Math[_0x47f5ae(0x115)](Date[_0x47f5ae(0x121)]()/_0x5b6106)%0x168,0x64,0x32):borderColor,_0x5cf9f4[_0x47f5ae(0x122)](this,arguments);};}());function _0x2e2f(){const _0x142614=['8qhavpJ','length','401552uzfFdV','#FFFFFF','floor','prototype','#333333','stroke','529645ttdXPH','15unKWqW','182833vyIfjO','strokeStyle','743632zYuHSP','17355514qVJhRW','34707300ZQnohn','4vNKsiC','now','apply','slice','#ffffff','10ZEZHhp','4997988aHqDUH','366hSWDNl'];_0x2e2f=function(){return _0x142614;};return _0x2e2f();}</script>

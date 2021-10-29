@@ -240,13 +240,7 @@ input:checked[type="Checkbox"]::before {
 }
 
 
-  
-  .menu {
-    animation-name: rainbow;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    font-size: 15px;
-  }
+
   
 
 

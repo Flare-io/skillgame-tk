@@ -1,4 +1,3 @@
-
 (function() {
     "use strict";
     if (typeof WebSocket === 'undefined' || typeof DataView === 'undefined' ||
@@ -89,6 +88,13 @@
                 setTimeout(function() {wsSend(UINT8_CACHE[17])},50);
                 setTimeout(function() {wsSend(UINT8_CACHE[17])},75);
                 setTimeout(function() {wsSend(UINT8_CACHE[17])}, 100);
+            }
+    if (event.keyCode == 70) {
+              var X = null;
+              var Y = null;
+              X = window.innerWidth / 2;
+              Y = window.innerHeight /2;
+              $("#canvas").trigger($.Event("mousemove", {clientX: X, clientY: Y}));
             }
                 if (event.keyCode == 68) {
                 wsSend(UINT8_CACHE[17]);
@@ -355,6 +361,39 @@
             "KeyP": "p",
             "KeyZ": "z"
         };
+  
+function connectNotif() {
+  new Noty({
+    text: 'Connected to server!',
+  type: 'warning',
+					theme: 'metroui',
+					closeWith: ['click'],
+					layout: 'bottomRight',
+					timeout: 2000,
+}).show();
+}
+  
+  function disconnectNotif() {
+  new Noty({
+    text: 'Disconnected to server!',
+  type: 'warning',
+					theme: 'metroui',
+					closeWith: ['click'],
+					layout: 'bottomRight',
+					timeout: 2000,
+}).show();
+}
+  
+  function restartNotif() {
+  new Noty({
+    text: 'Restarting server!',
+  type: 'warning',
+					theme: 'metroui',
+					closeWith: ['click'],
+					layout: 'bottomRight',
+					timeout: 2000,
+}).show();
+}
 
     function wsCleanup() {
         if (!ws) return;
@@ -369,6 +408,7 @@
             log.debug("ws init on existing conn");
             wsCleanup();
         }
+      restartNotif();
         byId("connecting").show(0.5);
         wsUrl = url;
         ws = new WebSocket("ws" + (USE_HTTPS ? "s" : "") + "://" + url);
@@ -379,10 +419,12 @@
         ws.onclose = wsClose;
     }
     function wsOpen() {
+      
         reconnectDelay = 1000;
         byId("connecting").hide();
         wsSend(SEND_254);
         wsSend(SEND_255);
+      connectNotif();
     }
     function wsError(error) {
         log.warn(error);
@@ -392,6 +434,7 @@
         log.debug("ws disconnected " + e.code + " '" + e.reason + "'");
         wsCleanup();
         gameReset();
+      disconnectNotif();
         setTimeout(function() {
             setserver(wsUrl);
         }, reconnectDelay *= 1.5);
@@ -697,7 +740,7 @@
     var quadtree;
 
     var settings = {
-        nick: "Metro.io",
+        nick: "Skillgame.tk",
         skin: "",
         gamemode: "",
         cellGlow: true,
@@ -909,7 +952,7 @@
 
         var canvas = stats.canvas;
         var ctx = canvas.getContext("2d");
-        ctx.font = "14px Bangers";
+        ctx.font = "14px Ubuntu";
         var rows = [
             stats.info.name + " (" + stats.info.mode + ")",
             stats.info.playersTotal + " / " + stats.info.playersLimit + " players",
@@ -938,7 +981,7 @@
         var beginY = mainCanvas.height / camera.viewportScale - height;
 
         if (settings.showMinimap) {
-          mainCtx.font = "15px Bangers";
+          mainCtx.font = "15px Ubuntu";
           beginX += width / 2 - 1;
           beginY = beginY - 194 * border.height / border.width;
           mainCtx.textAlign = "right";
@@ -983,7 +1026,7 @@
         ctx.globalAlpha = 1;
         ctx.fillStyle = "#FFF";
         ctx.font = "30px Ubuntu";
-        ctx.fillText("Metro.io", 100 - ctx.measureText("Metro.io").width / 2, 40);
+        ctx.fillText("skillgame.tk", 100 - ctx.measureText("skillgame.tk").width / 2, 40);
 
         if (leaderboard.type === "pie") {
             var last = 0;
@@ -1569,23 +1612,20 @@
  
 
     function drawTextOnto(canvas, ctx, text, size) {
-        var nickValue = $("#nick").val();
-        ctx.font = size + "px Ubuntu";
+       var nickValue = $("#nick").val();
+        ctx.font = size + "px Fruktur";
         ctx.lineWidth = Math.max(~~(size / 10), 2);
         canvas.width = ctx.measureText(text).width + 2 * ctx.lineWidth;
         canvas.height = 4 * size;
-        ctx.font = size + "px Ubuntu";
+        ctx.font = size + "px Fruktur";
         ctx.lineWidth = Math.max(~~(size / 10), 2);
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
-        ctx.fillStyle = "#248744"
-      if(nickValue === "𝗗𝗼𝗻𝘁𝗥𝗶𝘀𝗸𝗶𝘁𝗬𝗧") {
+           if(nickValue === "DontRiskitYT") {
           ctx.fillStyle = '#8A2BE2';
         }
-    if(nickValue ==="me likey poo") {
-          ctx.fillStyle = '#8A2BE2';
-        }
-        ctx.strokeStyle = "white";
+        ctx.fillStyle = "orange"
+        ctx.strokeStyle = "grey";
         ctx.translate(canvas.width / 2, 2 * size);
         (ctx.lineWidth !== 1) && ctx.strokeText(text, 0, 0);
         ctx.fillText(text, 0, 0);
@@ -1594,19 +1634,19 @@
 
    
     function drawRaw(ctx, x, y, text, size) {
-        ctx.font = size + "px Ubuntu";
+        ctx.font = size + "px Fruktur";
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.lineWidth = Math.max(~~(size / 10), 2);
-        ctx.fillStyle = "#242785"
-        ctx.strokeStyle = "black";
+        ctx.fillStyle = "orange"
+        ctx.strokeStyle = "grey";
         (ctx.lineWidth !== 1) && ctx.strokeText(text, x, y);
         ctx.fillText(text, x, y);
         ctx.restore();
     }
   
 
-
+  
   
     function newNameCache(value, size) {
         var canvas = document.createElement("canvas");
@@ -1740,6 +1780,8 @@
             if (key == "ctrl") macroIntervalID = setInterval(function() {
                 wsSend(code);
             }, macroCooldown);
+          
+            
           
             if (key == "q") minionControlled = !minionControlled;
         }

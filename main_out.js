@@ -1,4 +1,3 @@
-
 (function() {
     "use strict";
     if (typeof WebSocket === 'undefined' || typeof DataView === 'undefined' ||
@@ -927,7 +926,7 @@ function connectNotif() {
             var thisLineWidth = 0;
             var complexes = lines[i];
             for (var j = 0; j < complexes.length; j++) {
-                ctx.font = "18px Gloria Hallelujah";
+                ctx.font = "18px Ubuntu";
                 complexes[j].width = ctx.measureText(complexes[j].text).width;
                 thisLineWidth += complexes[j].width;
             }
@@ -939,7 +938,7 @@ function connectNotif() {
             width = 0;
             var complexes = lines[i];
             for (var j = 0; j < complexes.length; j++) {
-                ctx.font = "18px Gloria Hallelujah";
+                ctx.font = "18px Ubuntu";
                 ctx.fillStyle = complexes[j].color;
                 ctx.fillText(complexes[j].text, width, 20 * (1 + i));
                 width += complexes[j].width;
@@ -953,7 +952,7 @@ function connectNotif() {
 
         var canvas = stats.canvas;
         var ctx = canvas.getContext("2d");
-        ctx.font = "14px Gloria Hallelujah";
+        ctx.font = "14px Ubuntu";
         var rows = [
             stats.info.name + " (" + stats.info.mode + ")",
             stats.info.playersTotal + " / " + stats.info.playersLimit + " players",
@@ -966,7 +965,7 @@ function connectNotif() {
             width = Math.max(width, 2 + ctx.measureText(rows[i]).width + 2);
         canvas.width = width;
         canvas.height = rows.length * (14 + 2);
-        ctx.font = "14px Gloria Hallelujah";
+        ctx.font = "14px Ubuntu";
         ctx.fillStyle = settings.darkTheme ? "#AAA" : "#555";
         ctx.textBaseline = "top";
         for (var i = 0; i < rows.length; i++)
@@ -982,7 +981,7 @@ function connectNotif() {
         var beginY = mainCanvas.height / camera.viewportScale - height;
 
         if (settings.showMinimap) {
-          mainCtx.font = "15px Gloria Hallelujah";
+          mainCtx.font = "15px Ubuntu";
           beginX += width / 2 - 1;
           beginY = beginY - 194 * border.height / border.width;
           mainCtx.textAlign = "right";
@@ -1026,7 +1025,7 @@ function connectNotif() {
 
         ctx.globalAlpha = 1;
         ctx.fillStyle = "#FFF";
-        ctx.font = "30px Gloria Hallelujah";
+        ctx.font = "30px Ubuntu";
         ctx.fillText("skillgame.tk", 100 - ctx.measureText("skillgame.tk").width / 2, 40);
 
         if (leaderboard.type === "pie") {
@@ -1041,7 +1040,7 @@ function connectNotif() {
             }
         } else {
             var text, isMe = false, w, start;
-            ctx.font = "20px Gloria Hallelujah";
+            ctx.font = "20px Ubuntu";
             for (var i = 0; i < len; i++) {
                 if (leaderboard.type === "text")
                     text = leaderboard.items[i];
@@ -1095,7 +1094,7 @@ function connectNotif() {
         mainCtx.fillStyle = settings.darkTheme ? "#666" : "#DDD";
         mainCtx.textBaseline = "middle";
         mainCtx.textAlign = "center";
-        mainCtx.font = (w / 3 | 0) + "px Gloria Hallelujah";
+        mainCtx.font = (w / 3 | 0) + "px Ubuntu";
 
         for (var y = 0; y < sectorCount; ++y) {
             for (var x = 0; x < sectorCount; ++x) {
@@ -1132,7 +1131,7 @@ function connectNotif() {
         mainCtx.fillStyle = settings.darkTheme ? "#666" : "#DDD";
         mainCtx.textBaseline = "middle";
         mainCtx.textAlign = "center";
-        mainCtx.font = sectorNameSize + "px Gloria Hallelujah";
+        mainCtx.font = sectorNameSize + "px Ubuntu";
 
         for (var i = 0; i < sectorCount; i++) {
             var x = (i + 0.5) * sectorWidth;
@@ -1187,7 +1186,7 @@ function connectNotif() {
         if (cell !== null) {
             mainCtx.fillStyle = settings.darkTheme ? "#DDD" : "#222";
             var textSize = sectorNameSize;
-            mainCtx.font = textSize + "px Gloria Hallelujah";
+            mainCtx.font = textSize + "px Ubuntu";
             mainCtx.fillText(cell.name || EMPTY_NAME, myPosX, myPosY - 7 - textSize / 2);
         }
 
@@ -1247,11 +1246,11 @@ function connectNotif() {
         mainCtx.fillStyle = settings.darkTheme ? "#FFF" : "#000";
         mainCtx.textBaseline = "top";
         if (!isNaN(stats.score)) {
-            mainCtx.font = "30px Gloria Hallelujah";
+            mainCtx.font = "30px Ubuntu";
             mainCtx.fillText("Mass: " + stats.score, 2, height);
             height += 30;
         }
-        mainCtx.font = "20px Gloria Hallelujah";
+        mainCtx.font = "20px Ubuntu";
         var gameStatsText = ~~stats.fps + " FPS";
         if (!isNaN(stats.latency)) gameStatsText += " " + stats.latency + "ms ping";
         mainCtx.fillText(gameStatsText, 2, height);
@@ -1280,7 +1279,7 @@ function connectNotif() {
 
         if (minionControlled) {
             mainCtx.save();
-            mainCtx.font = "12px Gloria Hallelujah";
+            mainCtx.font = "12px Ubuntu";
             mainCtx.textAlign = "center";
             mainCtx.textBaseline = "hanging";
             mainCtx.fillStyle = "#eea236";
@@ -1613,15 +1612,15 @@ function connectNotif() {
  
 
     function drawTextOnto(canvas, ctx, text, size) {
-        ctx.font = size + "px Gloria Hallelujah";
+        ctx.font = size + "px Fruktur";
         ctx.lineWidth = Math.max(~~(size / 10), 2);
         canvas.width = ctx.measureText(text).width + 2 * ctx.lineWidth;
         canvas.height = 4 * size;
-        ctx.font = size + "px Gloria Hallelujah";
+        ctx.font = size + "px Fruktur";
         ctx.lineWidth = Math.max(~~(size / 10), 2);
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
-        ctx.fillStyle = "lightgreen"
+        ctx.fillStyle = "orange"
         ctx.strokeStyle = "grey";
         ctx.translate(canvas.width / 2, 2 * size);
         (ctx.lineWidth !== 1) && ctx.strokeText(text, 0, 0);
@@ -1631,11 +1630,11 @@ function connectNotif() {
 
    
     function drawRaw(ctx, x, y, text, size) {
-        ctx.font = size + "px Gloria Hallelujah";
+        ctx.font = size + "px Fruktur";
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.lineWidth = Math.max(~~(size / 10), 2);
-        ctx.fillStyle = "lightgreen"
+        ctx.fillStyle = "orange"
         ctx.strokeStyle = "grey";
         (ctx.lineWidth !== 1) && ctx.strokeText(text, x, y);
         ctx.fillText(text, x, y);

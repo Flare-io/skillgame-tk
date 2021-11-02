@@ -1,518 +1,74 @@
-<html><head>
-   
-      <style>
-         .modal { 
-            background-image: url(/css/images/logo.png); 
-            background-repeat: no-repeat;
-            background-position: left top; 
-            padding-top:95px;
-            margin-bottom:60px;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s; 
-            -webkit-animation-fill-mode: both; 
-            animation-fill-mode: both; 
-         }
-         
-         @-webkit-keyframes bounce { 
-            0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
-            40% {-webkit-transform: translateY(-30px);} 
-            60% {-webkit-transform: translateY(-15px);} 
-         } 
-         
-         @keyframes bounce { 
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
-            40% {transform: translateY(-30px);} 
-            60% {transform: translateY(-15px);} 
-         }
-         
-         .modal { 
-            -webkit-animation-name: bounce; 
-            animation-name: bounce; 
-         }
-      </style>
-   <style>
-    .modal{
-background-color: grey;
-text-decoration:none;
-padding: 15px 25px;
-font-family: sans-serif;
-font-size: 25px;
-color: grey;
-border-radius:10px;
-display: inline-block;
-transition: .8s ease
-}
-.modal:hover{
--webkit-box-shadow: 0px 0px 100px 0px grey;
--moz-box-shadow: 0px 0px 100px 0px grey;
-box-shadow: 0px 0px 100px 0px grey;
-transition: .8s ease;
-    }</style><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
-    html{
-        background-color: #212121;
-        color:rgb(236, 236, 236);
-    }
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="css/index.css" rel="stylesheet">
+	<link href="css/ui.css" rel="stylesheet">
 
-    .button {
-        padding:10px 20px;
-        background-color: rgb(255, 183, 28);
-        box-sizing: border-box;
-        font-size:20px;
-        font-weight: bold;
-        text-shadow:1px 1px 1px #000000, 0px 0px 2px #000000;
-        color:rgb(236, 236, 236);
-        cursor:pointer;
-        border:none;
-        border-radius: 1px;
-        box-shadow: 0px 0px 2px 1px #000000, 4px 4px 1px 2px rgba(0,0,0,0.5);
-        border-bottom: 4px solid rgba(0,0,0,0.3);
-    }
+    <script src="js/quadtree.js"></script>
+    <script src="js/main_out.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
-    .button:active{
-        background-color: rgb(196, 140, 21);
-        zoom:90%;
-        box-shadow: 0px 0px 2px 1px #000000;
-    }
+</head>
+</head>
+<body>
 
-    #container{
-        display:flex;
-        flex-direction: column;
-        width:1200;
-        height:600;
-    }
-  
-  #overlay{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-width:100%;
-height:100%;
-}
-
-    .text-border{
-        text-shadow: 1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0px 1px 0 #000,
-    0px -1px 0 #000,
-    -1px 0px 0 #000,
-    1px 0px 0 #000,
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000,
-    0px 2px 0 #000,
-    0px -2px 0 #000,
-    -2px 0px 0 #000,
-    2px 0px 0 #000,
-    1px 2px 0 #000,
-    -1px 2px 0 #000,
-    1px -2px 0 #000,
-    -1px -2px 0 #000,
-    2px 1px 0 #000,
-    -2px 1px 0 #000,
-    2px -1px 0 #000,
-    -2px -1px 0 #000;
-    }
-
-    #header{
-        display:flex;
-        justify-content:center;
-        font-size:35px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-    }
-
-    #nav{
-        display:flex;
-        padding:25px;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-
-    .nav-option{
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        font-size:22px;
-        transition: .1s;
-        cursor:pointer
-    }
-    .nav-option:hover{
-        color:rgb(255, 207, 104);
-    }
-    .nav-option:active{
-        font-size:30px;
-    }
-    .nav-selected{
-        color:rgb(255, 183, 28);
-        font-size:30px;
-    }
-    .modal{
-        background-color: rgb(51, 51, 51);
-        width:100%;
-        height: 400px;
-        margin:15px;
-        border-radius: 20px;
-    }
-
-    #main{
-        display: flex;
-        justify-content: space-between;
-        flex-shrink: 0;
-    }
-
-</style></head>
-
-
-	
-	<script src="assets/js/quadtree.js"></script>
-    <script src="assets/js/main_out.js"></script>
-	
-
-  <body><div id="overlay">
-<div id="container">
-    
-    
+<div id="overlays">
+  <div id="container">
     <div id="main">
-        <div class="modal"><center>
+      <div class="modal">
+        <center>
           <p id="modes">
             <strong>Gamemodes</strong>
           </p><br>
-          <button id="na-ultra" onclick="setserver(&quot;pewter-aphid.glitch.me/&quot;)">
+          <button id="na-ultra" onclick="setserver('pewter-aphid.glitch.me')">
             <span>Virus</span>
             <span>Farm</span>
           </button>
-          <button id="na-bots" onclick="setserver(&quot;ionized-stage.glitch.me/&quot;)">
+          <button id="na-bots" onclick="setserver('ionized-stage.glitch.me')">
             <span>Supersonic</span>
             <span>Bots</span>
           </button>
-          <button id="na-crazy" onclick="setserver(&quot;steel-sombrero.glitch.me/&quot;)">
+          <button id="na-crazy" onclick="setserver('steel-sombrero.glitch.me')">
             <span>Halloween</span>
             <span>Event</span>
           </button>
-                </center></div>
-<style>#na-ultra {
-    margin-bottom: 5px;
-    width:65%;
-    color:#fff;
-    background-color:rgba(0, 0, 255, 0);
-    border:#fff 2px solid;
-    border-radius:4px;
-    height:40px;
-    margin-left:0;
-    margin-right:0;
-}
-#na-bots {
-    margin-bottom: 5px;
-    width:65%;
-    color:#fff;
-    background-color:rgba(0, 0, 255, 0);
-    border:#fff 2px solid;
-    border-radius:4px;
-    height:40px;
-    margin-left:0;
-    margin-right:0;
-}
-#na-crazy {
-    margin-bottom: 5px;
-    width:65%;
-    color:#fff;
-    background-color:rgba(0, 0, 255, 0);
-    border:#fff 2px solid;
-    border-radius:4px;
-    height:40px;
-    margin-left:0;
-    margin-right:0;
-    }</style>
-
-
-
-        <div class="modal">
-		
-		<img src="https://media.discordapp.net/attachments/725970108299739167/904814481526374450/Untitled_1.png">
-<br>
- <br>
-    
-    
-    
-    
-    
-    
-    
-    <br>
-    
-    
-    
-    
-    <br>
-    
-    <vr>
-    
-  
-    <div id="footer">
-                 
-<br>
-<center>  <button id="play-btn" class="btn btn-play btn-needs-server">Play</button>
-    
-<button id="spectate-btn" onclick="spectate()" class="btn btn-spectate btn-needs-server">Spectate</button>
-<style>$fuschia: #ff0081;
-$button-bg: $fuschia;
-$button-text-color: #fff;
-$baby-blue: #f8faff;
-
-body{
-  font-size: 16px;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  text-align: center;
-  background-color: $baby-blue;
-}
-#spectate-btn{
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  display: inline-block;
-  font-size: 1em;
-  padding: 1em 2em;
-  margin-top: 100px;
-  margin-bottom: 60px;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: $button-bg;
-  color: $button-text-color;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
-  
-    
-    
-    
-    
-    
-  &amp;:focus {
-    outline: 0;
-  }
-  
-  &amp;:before, &amp;:after{
-    position: absolute;
-    content: '';
-    display: block;
-    width: 140%;
-    height: 100%;
-    left: -20%;
-    z-index: -1000;
-    transition: all ease-in-out 0.5s;
-    background-repeat: no-repeat;
-  }
-  
-  &amp;:before{
-    display: none;
-    top: -75%;
-    background-image:  
-      radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 20%, $button-bg 20%, transparent 30%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%), 
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-  //background-position: 0% 80%, -5% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 85% 30%;
-  }
-  
-  &amp;:after{
-    display: none;
-    bottom: -75%;
-    background-image:  
-    radial-gradient(circle, $button-bg 20%, transparent 20%), 
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-  //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-  }
- 
-  &amp;:active{
-    transform: scale(0.9);
-    background-color: darken($button-bg, 5%);
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-  }
-  
-  &amp;.animate{
-    &amp;:before{
-      display: block;
-      animation: topBubbles ease-in-out 0.75s forwards;
-    }
-    &amp;:after{
-      display: block;
-      animation: bottomBubbles ease-in-out 0.75s forwards;
-    }
-    }
-    </style></center>
-
-
-
-                <style>$fuschia: #ff0081;
-$button-bg: $fuschia;
-$button-text-color: #fff;
-$baby-blue: #f8faff;
-
-body{
-  font-size: 16px;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  text-align: center;
-  background-color: $baby-blue;
-}
-#play-btn{
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  display: inline-block;
-  font-size: 1em;
-  padding: 1em 2em;
-  margin-top: 100px;
-  margin-bottom: 60px;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: $button-bg;
-  color: $button-text-color;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
-  
-  &amp;:focus {
-    outline: 0;
-  }
-  
-  &amp;:before, &amp;:after{
-    position: absolute;
-    content: '';
-    display: block;
-    width: 140%;
-    height: 100%;
-    left: -20%;
-    z-index: -1000;
-    transition: all ease-in-out 0.5s;
-    background-repeat: no-repeat;
-  }
-  
-  &amp;:before{
-    display: none;
-    top: -75%;
-    background-image:  
-      radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 20%, $button-bg 20%, transparent 30%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%), 
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-  //background-position: 0% 80%, -5% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 85% 30%;
-  }
-  
-  &amp;:after{
-    display: none;
-    bottom: -75%;
-    background-image:  
-    radial-gradient(circle, $button-bg 20%, transparent 20%), 
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-  //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-  }
- 
-  &amp;:active{
-    transform: scale(0.9);
-    background-color: darken($button-bg, 5%);
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-  }
-  
-  &amp;.animate{
-    &amp;:before{
-      display: block;
-      animation: topBubbles ease-in-out 0.75s forwards;
-    }
-    &amp;:after{
-      display: block;
-      animation: bottomBubbles ease-in-out 0.75s forwards;
-    }
-    }
-    </style><style>
-}
-
-
-@keyframes topBubbles {
-  0%{
-    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-  }
-    50% {
-      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;}
- 100% {
-    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
-  background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
-  }
-}
-
-@keyframes bottomBubbles {
-  0%{
-    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
-  }
-  50% {
-    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;}
- 100% {
-    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-  background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
-  }
-    }</style>
-                 
-    
-
-		</div></vr></div>
-        <div class="modal"> <br><center> Move your <b>mouse</b> to control your cell<br>
+        </center>
+      </div>
+      <div class="modal">
+        <img src="https://media.discordapp.net/attachments/725970108299739167/904814481526374450/Untitled_1.png">
+          <br>
+          <br>
+          <br>
+          <br>
+          <vr>
+        <div id="footer">                 
+          <br>
+          <center>  
+            <button id="play-btn" class="btn btn-play btn-needs-server">Play</button> 
+            <button id="spectate-btn" onclick="spectate()" class="btn btn-spectate btn-needs-server">Spectate</button>
+          </center>
+        </div>
+        </vr>
+      </div>
+      <div class="modal"> <br><center> Move your <b>mouse</b> to control your cell<br>
             Press <b>SPACE</b> to split your cells<br>
             Press <b>W</b> to eject mass<br>
             Press <b>Z</b> to 64x split<br>
             Press <b>D</b> to double split  only in solotrick paridise currently <br>
     Hold <b>F</b> to freeze your cell<br></center>
-
-
-
-<link href="./ddde_files/css" rel="stylesheet">
-<style>
-body {
-    font-family: 'Sofia';font-size: 22px;
-}
-</style>
-
- 
-		
-		<canvas id="canvas" width="800" height="600"></canvas>
-    <input type="text" id="chat_textbox" placeholder="Press enter to chat" maxlength="200">
-    <div style="font-family:'Ubuntu'">&nbsp;</div>
-		
-		
-
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./ddde_files/css2" rel="stylesheet">
-
-                </div>
-
-
+  </div>
     </div>
   </div>
-</div></body></html>
+</div>
+<div id="connecting" style="transition: opacity 0.5s ease 0s; opacity: 1; display: none;">
+        <div id="connecting-content">
+            <h2>Connecting</h2>
+            <p> If you cannot connect to the servers, check if you have some anti virus or firewall blocking the connection.</p>
+        </div>
+    </div>
+<canvas id="canvas" width="800" height="600"></canvas>
+</body>
+</html>

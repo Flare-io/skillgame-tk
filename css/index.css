@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
+
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    font-family: 'Righteous', sans-serif;
+}
+
+input[type="Checkbox"] {
+    position: relative;
+    width: 30px;
+    height: 15px;
+    -webkit-appearance: none;
+    background: #2E2E2E;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    margin-right: 50%;
+}
+
+input:checked[type="Checkbox"] {
+    background: #9942e6;
+    outline: none;
+}
+
+input[type="Checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: .5s;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    outline: none;
+}
+
+input:checked[type="Checkbox"]::before {
+    left: 50%;
+    outline: none;
+}
+
+
+
+
+#overlays, #connecting{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+}
+#connecting {
+    z-index: 100;
+}
+#connecting-content {
+    width: 350px;
+    background-color: #fff;
+    margin: 100px auto;
+    border-radius: 1px;
+    padding: 5px 15px;
+}
+#deathScreen {
+  opacity: 0;
+    position: absolute;
+    left: 45%;
+    right: 50%;
+    top: 30%;
+    bottom: 0;
+    border-radius: 10px;
+     background: linear-gradient( 
+0deg
+ , 	#301934, #152238);
+    
+    z-index: 200;
+    width: 250px;
+    height: 250px;
+
+}
+#deathScreen img {
+  width: 250px;
+}
+.deathScreenButton {
+  border: none;
+  border-radius: 5px;
+  width: 230px;
+  margin-left: 10px;
+  margin-top: 160px;
+  background: lightgreen;
+}
+#title {
+    padding: 10px;
+}
+
+#nick {
+    transition: all .5s ease-in-out;
+    width: 100%;
+    font-family: "Bangers";
+    background-color: black;
+    border-radius: 25px;    
+    border: 5px;
+    solid: #fff;
+    padding:: 10px;
+    color: white;
+}
+#skin {
+    width: 33%;
+    float: right;
+}
+#nick, #skin {
+    display: inline;
+}
+#gamemode {
+    margin-top: px;
+    width: 100%;
+}
+#chat_textbox {
+    transition: all .5s ease-in-out;
+    position: absolute;
+    z-index: 2;
+    bottom: 10px;
+    background: #111;
+    border: 600px;
+    outline: none;
+    color: green;
+    height: 35px;
+    text-indent: 12px;
+    left: 10px;
+    width: 300px;
+    font-family: "Bangers";
+    border-radius: 200px;
+}
+#chat_textbox:focus {
+    background: rgba(0, 0, 0, .5);
+}
+#footer {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+#play-btn, #spectate-btn, #gallery-btn {
+    border-radius: 0px;
+}
+#play-btn:hover, #spectate-btn:hover, #gallery-btn:hover {
+    color: #ffffff;
+}
+
+#play-btn {
+    width: 50%;
+    background: #03e9f4;
+}
+
+
+#spectate-btn {
+    width: 49%;
+    background: #6800FF;
+    float: right;
+    top: 0;
+}
+
+#gallery-btn, #spectate-button {
+    display: inline;
+}
+#gallery-btn {
+    width: 49%;
+    background: #2D8DFF;
+    margin-bottom: 7px;
+}
+#gallery-btn:hover {
+  background: #2D8DFF;
+  box-shadow: 0 0 5px #2D8DFF,
+              0 0 25px #2D8DFF,
+              0 0 50px #2D8DFF,
+              0 0 200px #2D8DFF;
+}
+#touchpad, #touchCircle, #splitBtn, #ejectBtn {
+    position: fixed;
+}
+#touchpad, #splitBtn, #ejectBtn {
+    z-index: 2;
+}
+#touchpad {
+    background: #000;
+    opacity: 0.3;
+    width: 20vw;
+    height: 20vh;
+    left: 0;
+    bottom: 0;
+}
+#touchCircle {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 2vw;
+    background: #f00;
+    opacity: 0.3;
+    z-index: 3;
+}
+#splitBtn, #ejectBtn {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 4vw;
+    background: #777;
+    opacity: 0.5;
+}
+#splitBtn {
+    right: 18vw;
+    bottom: 0;
+}
+#ejectBtn {
+    bottom: 18vw;
+    right: 0;
+}
+#playSounds:checked + #soundsVolume {
+    display: inline;
+}
+#soundsVolume {
+    display: none;
+    width: 100px;
+    height: 18px;
+    padding: 0; /* IE fix */
+    vertical-align: middle;
+}
+#settings label {
+    margin-right: 10px;
+    user-select: none;
+}
+
+
+
+  
+
+
+
+
+.menu {
+    position: relative;
+    margin: 65px auto;
+    padding: 5px 15px 5px 15px;
+    width: 600px;
+    background: linear-gradient( 
+0deg
+ , 	#71797E, 	#71797E);
+    position: relative;
+    color:#71797E;
+}
+
+
+element.style {
+}
+.menu {
+    position: relative;
+    margin: 65px auto;
+    padding: 5px 15px 5px 15px;
+    width: 450px;
+    background: linear-gradient( 
+0deg
+ , 	#301934, #152238);
+    position: relative;
+    color: #ffffff;
+   border-radius: 1px;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+.shadow:before, .shadow:after {
+    content: '';
+    top: -2px;
+    left: -2px;
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient( 
+45deg , #36454f, #36454f, #36454f);
+    background-size: 400%;
+    z-index: -1;
+    animation: shadow 20s linear infinite;
+}
+ .shadow:after {
+	 top: -8px;
+	 left: -8px;
+	 width: calc(100% + 8px);
+	 height: calc(100% + 8px);
+	 filter: blur(24px);
+	 opacity: 0.9;
+}
+
+
+ @keyframes shadow {
+	 0% {
+		 background-position: 0 0;
+	}
+	 50.01% {
+		 background-position: 200% 0;
+	}
+	 100% {
+		 background-position: 0 0;
+	}
+}
+

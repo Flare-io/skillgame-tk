@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers');
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
 
 html, body {
     padding: 0;
@@ -12,111 +9,46 @@ html, body {
     width: 100%;
     height: 100%;
     position: fixed;
-    font-family: 'Righteous', sans-serif;
+	color: lightgrey;
+}
+input[type=checkbox] {
+    cursor: pointer;
 }
 
-input[type="Checkbox"] {
-    position: relative;
-    width: 30px;
-    height: 15px;
-    -webkit-appearance: none;
-    background: #2E2E2E;
-    outline: none;
-    border-radius: 20px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
-    margin-right: 50%;
-}
-
-input:checked[type="Checkbox"] {
-    background: #9942e6;
-    outline: none;
-}
-
-input[type="Checkbox"]::before {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border-radius: 20px;
-    top: 0;
-    left: 0;
-    background: #fff;
-    transition: .5s;
-    transform: scale(1.1);
-    box-shadow: 0 2px 5px rgba(0,0,0,.2);
-    outline: none;
-}
-
-input:checked[type="Checkbox"]::before {
-    left: 50%;
-    outline: none;
-}
-
-
-
-
-#overlays, #connecting{
+#overlays, #connecting {
     opacity: 0;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 200;
 }
 #connecting {
     z-index: 100;
 }
 #connecting-content {
-    width: 350px;
-    background-color: #fff;
+    width:  450px;
+    background-image:url('https://img.pixers.pics/pho_wat(s3:700/FO/45/41/04/05/700_FO45410405_14cabdd613161a32d10d3df19d16d566.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/wall-murals-abstract-waves-background-seamless-pattern.jpg.jpg');
+    border: solid 10px rgb(41 42 46);
     margin: 100px auto;
-    border-radius: 1px;
+    border-radius: 15px;
     padding: 5px 15px;
+    color: black;
 }
-#deathScreen {
-  opacity: 0;
-    position: absolute;
-    left: 45%;
-    right: 50%;
-    top: 30%;
-    bottom: 0;
-    border-radius: 10px;
-     background: linear-gradient( 
-0deg
- , 	#301934, #152238);
-    
-    z-index: 200;
-    width: 250px;
-    height: 250px;
 
-}
-#deathScreen img {
-  width: 250px;
-}
-.deathScreenButton {
-  border: none;
-  border-radius: 5px;
-  width: 230px;
-  margin-left: 10px;
-  margin-top: 160px;
-  background: lightgreen;
-}
-#title {
-    padding: 10px;
-}
+
+
 
 #nick {
-    transition: all .5s ease-in-out;
-    width: 100%;
-    font-family: "Bangers";
-    background-color: black;
-    border-radius: 25px;    
-    border: 5px;
-    solid: #fff;
-    padding:: 10px;
-    color: white;
+    width: 70%;
+    height: 50px;
+    background: rgb(42 42 42);
+    border: solid 2px;
+    display: inline;
+    font-family: Road Rage;
+    font-size: 30px;
 }
 #skin {
     width: 33%;
@@ -126,24 +58,79 @@ input:checked[type="Checkbox"]::before {
     display: inline;
 }
 #gamemode {
-    margin-top: px;
+    margin-top: 5px;
     width: 100%;
 }
+.middle {
+    width: 435px;
+    height: 600px;
+    margin: 10px auto;
+    border-radius: 0px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ background: rgb(41 42 46);
+    
+
+   
+}
+
+
+.left {
+    width: 335px;
+    height: 600px;
+    margin: 10px auto;
+    border-radius: 15px 0px 0px 15px;
+
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-160%, -50%);
+ background: rgb(52 52 52);
+    
+
+   
+}
+#rightPanel {
+	width: 350px;
+	margin: 10px auto;
+	border-radius: 15px;
+	padding: 5px 15px 5px 15px;
+	position: absolute;
+	top: 50%;
+	left: 150%;
+	margin-right: -50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+background: radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent)
+}
+ 
+
+
+
+
+
+
 #chat_textbox {
     transition: all .5s ease-in-out;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     bottom: 10px;
-    background: #111;
-    border: 600px;
+    background: rgba(0, 0, 0, .2);
+    border: 0px;
     outline: none;
-    color: green;
-    height: 35px;
+    color: #fff;
+    height: 30px;
     text-indent: 12px;
     left: 10px;
     width: 300px;
-    font-family: "Bangers";
-    border-radius: 200px;
+    font-size: 20px;
+    font-family: "Road Rage";
 }
 #chat_textbox:focus {
     background: rgba(0, 0, 0, .5);
@@ -153,40 +140,47 @@ input:checked[type="Checkbox"]::before {
     margin-bottom: 10px;
     margin-top: -10px;
 }
-#play-btn, #spectate-btn, #gallery-btn {
-    border-radius: 0px;
-}
-#play-btn:hover, #spectate-btn:hover, #gallery-btn:hover {
-    color: #ffffff;
-}
-
 #play-btn {
-    width: 50%;
-    background: #03e9f4;
+    width: 85%;
+    margin-bottom: 10px;
+    background: #50C878;
+    border: solid 4px 	#50C878;
+    font-family: "Ubuntu";
 }
-
-
 #spectate-btn {
-    width: 49%;
-    background: #6800FF;
-    float: right;
-    top: 0;
+    width: 30%;
+    height: 50px;
+    border-radius: 8px;
+    transform: translate(217%, -70%);
+    margin-bottom: 0px;
+    button-align: right;
+    background: #212121;
+    border: solid 2px #2a2c31;
+    font-family: "Ubuntu";
 }
 
-#gallery-btn, #spectate-button {
+#clrname {
+   width: 37.6%;
+    height: 50px;
+    border-radius: 8px;
+   transform: translate(-10%, -66%);
+    margin-bottom: 0px;
+    button-align: right;
+    background: #212121;
+    border: solid 2px #2a2c31;
+    font-family: "Ubuntu";
+}
+#clrname, #spectate-button {
     display: inline;
 }
+
+
+
+
+
 #gallery-btn {
-    width: 49%;
-    background: #2D8DFF;
-    margin-bottom: 7px;
-}
-#gallery-btn:hover {
-  background: #2D8DFF;
-  box-shadow: 0 0 5px #2D8DFF,
-              0 0 25px #2D8DFF,
-              0 0 50px #2D8DFF,
-              0 0 200px #2D8DFF;
+    width: 100%;
+    margin-bottom: 5px;
 }
 #touchpad, #touchCircle, #splitBtn, #ejectBtn {
     position: fixed;
@@ -239,108 +233,25 @@ input:checked[type="Checkbox"]::before {
     margin-right: 10px;
     user-select: none;
 }
-
-
-
-  
-
-
-
-
-.menu {
-    position: relative;
-    margin: 65px auto;
-    padding: 5px 15px 5px 15px;
-    width: 600px;
-    background: linear-gradient( 
-0deg
- , 	#71797E, 	#71797E);
-    position: relative;
-    color:#71797E;
+.header {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 6rem;
+	font-weight:  100;
+	letter-spacing: 2px;
+	text-align: center;
+	color: #f35626;
+	background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;
 }
 
-
-element.style {
-}
-.menu {
-    position: relative;
-    margin: 65px auto;
-    padding: 5px 15px 5px 15px;
-    width: 450px;
-    background: linear-gradient( 
-0deg
- , 	#301934, #152238);
-    position: relative;
-    color: #ffffff;
-   border-radius: 1px;
-}
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-user agent stylesheet
-div {
-    display: block;
-}
-html, body {
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    overflow-x: hidden;
-    -webkit-text-size-adjust: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    font-family: 'Montserrat', sans-serif;
-}
-body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
-}
-html {
-    font-size: 10px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-html {
-    font-family: sans-serif;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
-.shadow:before, .shadow:after {
-    content: '';
-    top: -2px;
-    left: -2px;
-    position: absolute;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    background: linear-gradient( 
-45deg , #36454f, #36454f, #36454f);
-    background-size: 400%;
-    z-index: -1;
-    animation: shadow 20s linear infinite;
-}
- .shadow:after {
-	 top: -8px;
-	 left: -8px;
-	 width: calc(100% + 8px);
-	 height: calc(100% + 8px);
-	 filter: blur(24px);
-	 opacity: 0.9;
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
 
-
- @keyframes shadow {
-	 0% {
-		 background-position: 0 0;
-	}
-	 50.01% {
-		 background-position: 200% 0;
-	}
-	 100% {
-		 background-position: 0 0;
-	}
-}

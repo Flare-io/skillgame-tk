@@ -1,74 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link href="css/index.css" rel="stylesheet">
-	<link href="css/ui.css" rel="stylesheet">
 
-    <script src="js/quadtree.js"></script>
-    <script src="js/main_out.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
-</head>
-</head>
 <body>
+<html>
+<p class="line-1 anim-typewriter">Please wait, the page is loading...</p>
 
-<div id="overlays">
-  <div id="container">
-    <div id="main">
-      <div class="modal">
-        <center>
-          <p id="modes">
-            <strong>Gamemodes</strong>
-          </p><br>
-          <button id="na-ultra" onclick="setserver('pewter-aphid.glitch.me')">
-            <span>Virus</span>
-            <span>Farm</span>
-          </button>
-          <button id="na-bots" onclick="setserver('ionized-stage.glitch.me')">
-            <span>Supersonic</span>
-            <span>Bots</span>
-          </button>
-          <button id="na-crazy" onclick="setserver('steel-sombrero.glitch.me')">
-            <span>Halloween</span>
-            <span>Event</span>
-          </button>
-        </center>
-      </div>
-      <div class="modal">
-        <img src="https://media.discordapp.net/attachments/725970108299739167/904814481526374450/Untitled_1.png">
-          <br>
-          <br>
-          <br>
-          <br>
-          <vr>
-        <div id="footer">                 
-          <br>
-          <center>  
-            <button id="play-btn" class="btn btn-play btn-needs-server">Play</button> 
-            <button id="spectate-btn" onclick="spectate()" class="btn btn-spectate btn-needs-server">Spectate</button>
-          </center>
-        </div>
-        </vr>
-      </div>
-      <div class="modal"> <br><center> Move your <b>mouse</b> to control your cell<br>
-            Press <b>SPACE</b> to split your cells<br>
-            Press <b>W</b> to eject mass<br>
-            Press <b>Z</b> to 64x split<br>
-            Press <b>D</b> to double split  only in solotrick paridise currently <br>
-    Hold <b>F</b> to freeze your cell<br></center>
-  </div>
-    </div>
-  </div>
-</div>
-<div id="connecting" style="transition: opacity 0.5s ease 0s; opacity: 1; display: none;">
-        <div id="connecting-content">
-            <h2>Connecting</h2>
-            <p> If you cannot connect to the servers, check if you have some anti virus or firewall blocking the connection.</p>
-        </div>
-    </div>
-<canvas id="canvas" width="800" height="600"></canvas>
-</body>
-</html>
+	 <center>
+	 <img src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-14.jpg">
+	
+	 <meta http-equiv="Refresh" content="7; url='./web/'" />
+	 
+	
+	 
+	 
+	</html>
+	</body>
+	
+	<style>/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+/* Global */
+html{
+  min-height: 100%;
+  overflow: hidden;
+}
+body{
+  height: calc(100vh - 8em);
+  padding: 4em;
+  color: rgba(255,255,255,.75);
+  font-family: 'Anonymous Pro', monospace;  
+  background-color: rgb(25,25,25);  
+}
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}</style>
